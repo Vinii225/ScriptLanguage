@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Showing Flags</title>
+    <style>
+      .flags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .flag-item {
+        width: 150px;
+        text-align: center;
+      }
+      .flag-item img {
+        width: 120px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bandeiras</h1>
+    <div id="flags-container" class="flags-container"></div>
+    <script type="module">
+      import flags from './data.js';
+      const container = document.getElementById('flags-container');
+
+      flags.forEach(country => {
+          const item = document.createElement('div');
+          item.className = 'flag-item';
+
+          const img = document.createElement('img');
+          img.src = country.image;
+
+          const name = document.createElement('div');
+          name.textContent = country.name;
+
+          item.appendChild(img);
+          item.appendChild(name);
+          container.appendChild(item);
+      });
+    </script>
+  </body>
+</html>
